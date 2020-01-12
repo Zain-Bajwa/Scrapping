@@ -30,13 +30,6 @@ for item in main_page:
     # item.find_element_by_tag_name('a').click()
     x=x+1
 print(x)
-# aa = driver.find_element_by_class_name("listingCard")
 
-# driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-# driver.execute_script("window.scrollTo(0, Y)")
-# driver.get('file:///C:/Users/zaina/Downloads/zain/test1.html')
-# print(driver.page_source)
-# print(driver.get_log('browser'))
-# driver.execute_script("document.getElementById('intro-text').innerHTML = 'This is my script.'")
 print(driver.page_source)
 driver.close()
