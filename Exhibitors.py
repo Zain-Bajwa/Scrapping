@@ -26,13 +26,14 @@ while True:
     if new_height == last_height:
         break
 
+driver2 = webdriver.Chrome()
 x=1
 main_page = driver.find_elements_by_class_name("listingCard")
 for item in main_page:
-    print(item.find_element_by_tag_name('a').get_attribute('text'))
-    item.find_element_by_tag_name('a').click()
+    company_link = item.find_element_by_tag_name('a').get_attribute('href')
+    driver2.get(company_link)
+    print(x)
     x=x+1
-print(x)
 
 data = {}
 driver.get('https://ces20.mapyourshow.com/8_0/exhibitor/exhibitor-details.cfm?ExhID=T0014256')
@@ -70,3 +71,5 @@ for i, value in enumerate(employees_details):
 print(driver.page_source)
 driver.close()
 display.stop()
+driver2.close()
+
