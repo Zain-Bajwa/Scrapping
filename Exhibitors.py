@@ -27,7 +27,7 @@ x=1
 main_page = driver.find_elements_by_class_name("listingCard")
 for item in main_page:
     print(item.find_element_by_tag_name('a').get_attribute('text'))
-    # item.find_element_by_tag_name('a').click()
+    item.find_element_by_tag_name('a').click()
     x=x+1
 print(x)
 
