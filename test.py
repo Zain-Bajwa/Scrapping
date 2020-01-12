@@ -13,12 +13,12 @@ url = base_url + '/jnl-ranks/?search=&by=all&source=all&sort=atitle&page='
 
 ranks = ['A*', 'A', 'B', 'C', 'Other', 'Not ranked']
 
-my_url = 'https://www.ces.tech/Show-Floor/Exhibitor-Directory.aspx?searchTerm=&sortBy=alpha&filter=A&pageNo=1&pageSize=30'
+my_url = 'https://www.ces.tech/Show-Floor/Exhibitor-Directory.aspx?searchTerm=&sortBy=alpha&filter=&pageNo=1&pageSize=300'
 # response = requests.get(my_url)
 # soup = BeautifulSoup(response.text, "lxml")
 # print(soup)
 
-
+# |
 driver.get(my_url)
 # print(driver.page_source)
 # ss = driver.find_element_by_tag_name('script').get_attribute('src')
@@ -45,9 +45,9 @@ while True:
 
 x=1
 for item in driver.find_elements_by_class_name("listingCard"):
-    print(item)
+
     x=x+1
-print(x)
+# print(x)
 # aa = driver.find_element_by_class_name("listingCard")
 
 # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
