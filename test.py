@@ -13,7 +13,7 @@ url = base_url + '/jnl-ranks/?search=&by=all&source=all&sort=atitle&page='
 
 ranks = ['A*', 'A', 'B', 'C', 'Other', 'Not ranked']
 
-my_url = 'https://www.ces.tech/Show-Floor/Exhibitor-Directory.aspx?searchTerm=&sortBy=alpha&filter=&pageNo=1&pageSize=300'
+my_url = 'https://www.ces.tech/Show-Floor/Exhibitor-Directory.aspx?searchTerm=&sortBy=alpha&filter=A&pageNo=1&pageSize=300'
 # response = requests.get(my_url)
 # soup = BeautifulSoup(response.text, "lxml")
 # print(soup)
@@ -44,10 +44,12 @@ while True:
     last_height = new_height
 
 x=1
-for item in driver.find_elements_by_class_name("listingCard"):
-
+main_page = driver.find_elements_by_class_name("listingCard")
+for item in main_page:
+    print(item.find_element_by_tag_name('a').get_attribute('text'))
+    # item.find_element_by_tag_name('a').click()
     x=x+1
-# print(x)
+print(x)
 # aa = driver.find_element_by_class_name("listingCard")
 
 # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -56,5 +58,5 @@ for item in driver.find_elements_by_class_name("listingCard"):
 # print(driver.page_source)
 # print(driver.get_log('browser'))
 # driver.execute_script("document.getElementById('intro-text').innerHTML = 'This is my script.'")
-# print(driver.page_source)
+print(driver.page_source)
 driver.close()
