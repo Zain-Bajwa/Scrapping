@@ -1,31 +1,12 @@
 import time
-
-import requests
-from bs4 import BeautifulSoup
 from selenium import webdriver
 
-driver = webdriver.Chrome()
-import re
-
-pages = 18
-base_url = 'http://portal.core.edu.au'
-url = base_url + '/jnl-ranks/?search=&by=all&source=all&sort=atitle&page='
-
-ranks = ['A*', 'A', 'B', 'C', 'Other', 'Not ranked']
-
-my_url = 'https://www.ces.tech/Show-Floor/Exhibitor-Directory.aspx?searchTerm=&sortBy=alpha&filter=A&pageNo=1&pageSize=30'
-# response = requests.get(my_url)
-# soup = BeautifulSoup(response.text, "lxml")
-# print(soup)
-
-
-driver.get(my_url)
-# print(driver.page_source)
-# ss = driver.find_element_by_tag_name('script').get_attribute('src')
-#
-# print(ss)
-
 SCROLL_PAUSE_TIME = 3
+
+driver = webdriver.Chrome()
+
+my_url = 'https://www.ces.tech/Show-Floor/Exhibitor-Directory.aspx?pageSize=300'
+driver.get(my_url)
 
 # Get scroll height
 last_height = driver.execute_script("return document.body.scrollHeight")
@@ -43,10 +24,10 @@ while True:
         break
     last_height = new_height
 
-x=1
+x = 1
 for item in driver.find_elements_by_class_name("listingCard"):
     print(item)
-    x=x+1
+    x = x + 1
 print(x)
 # aa = driver.find_element_by_class_name("listingCard")
 
